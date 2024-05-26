@@ -1,0 +1,17 @@
+{{#extend "layouts/main"}}
+
+{{#content "body"}}
+<h1>Editar Usuario</h1>
+<form action="/api/users/modify-role" method="POST">
+    <input type="hidden" name="userId" value="{{user._id}}">
+    <div>
+        <label for="role">Rol:</label>
+        <select name="role" id="role">
+            <option value="user" {{#if (eq user.role "user")}}selected{{/if}}>Usuario</option>
+            <option value="admin" {{#if (eq user.role "admin")}}selected{{/if}}>Administrador</option>
+            <option value="premium" {{#if (eq user.role "premium")}}selected{{/if}}>Premium</option>
+        </select>
+    </div>
+    <button type="submit">Guardar Cambios</button>
+</form>
+{{/content}}
